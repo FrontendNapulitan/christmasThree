@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+  overflow: hidden;
+  font-family: 'Lobster', sans-serif;
+  color: white;
+  height: 100vh;
+  margin: 0;
+  background: rgb(232, 63, 63);
+  background: radial-gradient(circle, rgba(232, 63, 63, 1) 0%, rgba(184, 3, 3, 1) 23%, rgba(161, 1, 1, 1) 52%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+#container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.christmasBall {
+  width: 10px;
+  height: 10px;
+  border-radius: 200px;
+  background-color: white;
+  position: absolute;
+  z-index: 99;
+}
+
+#sound {
+  position: absolute;
+  visibility: hidden;
+}
+
+#shadow {
+  position: absolute;
+  bottom: -25px;
+  height: 40px;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) -50%, rgba(199, 147, 2, 0) 100%);
+  border-radius: 50%;
+}
+
+#rangeContainer label{
+font-size: 20px;
+margin-bottom: 10px;
+}
+#rangeContainer {
+  /*         width: 200px; */
+  height: 150px;
+  display: flex;
+  margin: 10px auto 5vh auto;
+  flex-direction: column;
+  justify-content: end;
+}
+
+#christmasThree {
+
+  animation: rotateAnimation 5s linear infinite;
+  margin: auto auto 20px auto;
+  /*   min-width:100px;
+      max-width:400px;
+      min-height:200px;
+      max-height:400px; */
+  /*       width:200px; */
+  height: 350px;
+  display: grid;
+}
+
+.christmasBlock:nth-last-of-type() {
+  z-index: 10;
+}
+
+.christmasBlock {
+  position: relative;
+  /*   width:20px; */
+  /*   height:20px; */
+  background: green;
+}
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: black;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  margin-top: -12px;
+  /* Centers thumb on the track */
+
+  /*custom styles*/
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  border-radius: 50px;
+  height: 2rem;
+  width: 2rem;
+  outline: none;
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: black;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  /*Removes extra border that FF applies*/
+  border-radius: 0;
+  /*Removes default border-radius that FF applies*/
+
+  /*custom styles*/
+  background-color: black;
+  height: 2rem;
+  width: 1rem;
+}
+
+
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotateY(45deg);
+  }
+
+  to {
+    transform: rotateY(225deg);
+  }
+}
+
+@keyframes steady {
+  0% {
+    transform: scale (1, 1);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
