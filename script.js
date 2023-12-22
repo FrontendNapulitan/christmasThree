@@ -2,7 +2,15 @@ const width = document.getElementById("larghezza");
 const height = document.getElementById("altezza");
 const audio = document.getElementById("sound");
 const share = document.getElementById("share");
-
+const paragrafoCustom = document.getElementById("customParagraph");
+const paragrafoCustomPlaceholder = document.getElementById("customParagraphPlaceholder");
+paragrafoCustom.addEventListener('input', (event) => {
+  if(event.target.innerHTML.length > 0){
+    paragrafoCustomPlaceholder.style.display = 'none';
+  }else{
+    paragrafoCustomPlaceholder.style.display = 'block';
+  }
+})
 const root = document.documentElement;
 const ballColors = [
   "yellow",
@@ -16,16 +24,15 @@ const ballColors = [
 share.addEventListener("click", () => {
   takeshot();
 });
-const christmasContainer = document.getElementById("christmasThree");
+const christmasContainer = document.getElementById("christmasTree");
 width.addEventListener("input", (event) => {
-  updateChristmasThree(event.target.value, height.value);
+  updateChristmasTree(event.target.value, height.value);
 });
 height.addEventListener("input", (event) => {
-  updateChristmasThree(width.value, event.target.value);
+  updateChristmasTree(width.value, event.target.value);
 });
 
-const updateChristmasThree = (width = width.value, height = height.value) => {
-  console.log(width, height);
+const updateChristmasTree = (width = width.value, height = height.value) => {
   christmasContainer.style.animation = "none";
   christmasContainer.style.gridTemplateColumns =
     "repeat(" + parseInt(width) + ", minmax(20px, 1fr))";
@@ -94,15 +101,39 @@ const isChunk = (index, width) => {
 };
 
 setTimeout(() => {
-  updateChristmasThree(width.value, height.value);
+  updateChristmasTree(width.value, height.value);
 }, 100);
 const takeshot = async () => {
-  let div = document.getElementById("container");
-  const canvas = await html2canvas(div);
-  const blob = await fetch(canvas.toDataURL("image/png")).then((res) =>
-    res.blob()
-  );
-  await shareOrDownload(blob, "immagine", "prova", "guardaqua");
+  
+  const canvas = await html2canvas(document.body, {
+   
+    onclone: () => {
+      christmasContainer.style.margin = "0px auto auto auto";
+      document.getElementById('rangeContainer').style.visibility = 'hidden';
+      document.getElementById('share').style.visibility = 'hidden';
+    },
+    height: (document.body.clientHeight-228),
+    width: document.body.clientWidth,
+    allowTaint: true,
+    // ignoreElements: (element) => {
+    //   if ( element.id == 'rangeContainer' 
+    //   || element.id == 'share' 
+    //   ) {
+    //     return true;
+    //   }
+    //   return false
+    // },
+    scale:2,
+    useCORS: true,
+  });
+  
+  const blob = await fetch(canvas.toDataURL('image/png')).then(res => res.blob());
+  await shareOrDownload(blob, "immagine.png", "prova", "guardaqua");
+  setTimeout(() => {
+    christmasContainer.style.margin = "auto auto 20px auto";
+    document.getElementById('rangeContainer').style.visibility = 'visible';
+    document.getElementById('share').style.visibility = 'visible';
+   }, 500);
 };
 
 const shareOrDownload = async (blob, fileName, title, text) => {
@@ -116,7 +147,7 @@ const shareOrDownload = async (blob, fileName, title, text) => {
         const data = {
           files: [
             new File([blob], fileName, {
-              type: blob.type,
+              type: "image/png",
             }),
           ],
           title,
