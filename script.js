@@ -122,14 +122,14 @@ const takeshot = async () => {
     height: (document.body.clientHeight-228),
     width: document.body.clientWidth,
     allowTaint: true,
-    // ignoreElements: (element) => {
-    //   if ( element.id == 'rangeContainer' 
-    //   || element.id == 'share' 
-    //   ) {
-    //     return true;
-    //   }
-    //   return false
-    // },
+    ignoreElements: (element) => {
+      if ( element.id == 'tronco' 
+      || element.id == 'foglie' 
+      ) {
+        return true;
+      }
+      return false
+    },
     scale:2,
     useCORS: true,
   });
