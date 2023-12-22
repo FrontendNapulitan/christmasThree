@@ -115,6 +115,9 @@ const takeshot = async () => {
       christmasContainer.style.margin = "0px auto auto auto";
       document.getElementById('rangeContainer').style.visibility = 'hidden';
       document.getElementById('share').style.visibility = 'hidden';
+      document.getElementById('foglie').style.visibility = 'hidden';
+      document.getElementById('customParagraphPlaceholder').style.visibility = 'hidden';
+      document.getElementById('tronco').style.visibility = 'hidden';
     },
     height: (document.body.clientHeight-228),
     width: document.body.clientWidth,
@@ -136,6 +139,9 @@ const takeshot = async () => {
   setTimeout(() => {
     christmasContainer.style.margin = "auto auto 20px auto";
     document.getElementById('rangeContainer').style.visibility = 'visible';
+    document.getElementById('foglie').style.visibility = 'visible';
+    document.getElementById('customParagraphPlaceholder').style.visibility = 'visible';
+    document.getElementById('tronco').style.visibility = 'visible';
     document.getElementById('share').style.visibility = 'visible';
    }, 500);
 };
