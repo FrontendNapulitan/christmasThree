@@ -4,6 +4,10 @@ const audio = document.getElementById("sound");
 const share = document.getElementById("share");
 const paragrafoCustom = document.getElementById("customParagraph");
 const paragrafoCustomPlaceholder = document.getElementById("customParagraphPlaceholder");
+paragrafoCustomPlaceholder.style.top = (paragrafoCustom.clientHeight+30)+'px';
+window.addEventListener('resize', function(event) {
+  paragrafoCustomPlaceholder.style.top = (paragrafoCustom.clientHeight+30)+'px';
+}, true);
 paragrafoCustom.addEventListener('input', (event) => {
   if(event.target.innerHTML.length > 0){
     paragrafoCustomPlaceholder.style.display = 'none';
