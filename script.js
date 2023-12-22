@@ -4,9 +4,9 @@ const audio = document.getElementById("sound");
 const share = document.getElementById("share");
 const paragrafoCustom = document.getElementById("customParagraph");
 const paragrafoCustomPlaceholder = document.getElementById("customParagraphPlaceholder");
-paragrafoCustomPlaceholder.style.top = (paragrafoCustom.clientHeight+30)+'px';
+paragrafoCustomPlaceholder.style.top = (paragrafoCustom.clientHeight+10)+'px';
 window.addEventListener('resize', function(event) {
-  paragrafoCustomPlaceholder.style.top = (paragrafoCustom.clientHeight+30)+'px';
+  paragrafoCustomPlaceholder.style.top = (paragrafoCustom.clientHeight+10)+'px';
 }, true);
 paragrafoCustom.addEventListener('input', (event) => {
   if(event.target.innerHTML.length > 0){
@@ -113,7 +113,7 @@ const takeshot = async () => {
    
     onclone: () => {
       christmasContainer.style.margin = "0px auto auto auto";
-      document.getElementById('rangeContainer').style.visibility = 'hidden';
+      document.getElementById('rangeContainer').style.display = 'none';
       document.getElementById('share').style.visibility = 'hidden';
       document.getElementById('foglie').style.visibility = 'hidden';
       document.getElementById('customParagraphPlaceholder').style.visibility = 'hidden';
@@ -138,12 +138,12 @@ const takeshot = async () => {
   await shareOrDownload(blob, "immagine.png", "prova", "guardaqua");
   setTimeout(() => {
     christmasContainer.style.margin = "auto auto 20px auto";
-    document.getElementById('rangeContainer').style.visibility = 'visible';
+    document.getElementById('rangeContainer').style.display = 'flex';
     document.getElementById('foglie').style.visibility = 'visible';
     document.getElementById('customParagraphPlaceholder').style.visibility = 'visible';
     document.getElementById('tronco').style.visibility = 'visible';
     document.getElementById('share').style.visibility = 'visible';
-   }, 500);
+   }, 1000);
 };
 
 const shareOrDownload = async (blob, fileName, title, text) => {
