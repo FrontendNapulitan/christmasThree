@@ -31,7 +31,32 @@ p{margin: 0;}
   width: 100%;
   opacity: .3;
 }
-button{
+.disabled{
+  pointer-events: none;
+  opacity: .3;
+}
+#socialButtons{
+  position: relative;
+  /* bottom: 20px; */
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#socialButtons svg{
+  width: 10px;
+  max-width: 100%;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+a:active, a:visited{
+  color:white
+}
+#share{
   background-color: transparent;
   border: none;
   outline: none;
@@ -45,7 +70,7 @@ button{
   width: 100%;
   height: 100%;
   display: grid;
-  grid-auto-rows: 25vh auto 20vh 10vh;
+  grid-template-rows: 25vh auto 20vh 10vh 5vh;
 }
 .christmasBall {
   width: 10px;

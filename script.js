@@ -10,8 +10,10 @@ window.addEventListener('resize', function(event) {
 }, true);
 paragrafoCustom.addEventListener('input', (event) => {
   if(event.target.innerHTML.length > 0){
+    share.classList.remove('disabled');
     paragrafoCustomPlaceholder.style.display = 'none';
   }else{
+    share.classList.add('disabled');
     paragrafoCustomPlaceholder.style.display = 'block';
   }
 })
@@ -118,6 +120,7 @@ const takeshot = async () => {
       document.getElementById('foglie').style.visibility = 'hidden';
       document.getElementById('customParagraphPlaceholder').style.visibility = 'hidden';
       document.getElementById('tronco').style.visibility = 'hidden';
+      document.getElementById('socialButtons').style.visibility = 'hidden';
     },
     height: (document.body.clientHeight-150),
     width: document.body.clientWidth,
@@ -143,6 +146,8 @@ const takeshot = async () => {
     document.getElementById('customParagraphPlaceholder').style.visibility = 'visible';
     document.getElementById('tronco').style.visibility = 'visible';
     document.getElementById('share').style.visibility = 'visible';
+    document.getElementById('socialButtons').style.visibility = 'visible';
+
    }, 1000);
 };
 
