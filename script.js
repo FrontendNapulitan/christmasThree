@@ -119,7 +119,7 @@ const takeshot = async () => {
       document.getElementById('customParagraphPlaceholder').style.visibility = 'hidden';
       document.getElementById('tronco').style.visibility = 'hidden';
     },
-    height: (document.body.clientHeight-228),
+    height: (document.body.clientHeight-150),
     width: document.body.clientWidth,
     allowTaint: true,
     ignoreElements: (element) => {
